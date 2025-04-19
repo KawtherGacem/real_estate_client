@@ -147,7 +147,7 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (user && isAuthPage) {
-      router.push("/");
+      router.push("/landing");
     }
   }, [user, isAuthPage, router]);
 
