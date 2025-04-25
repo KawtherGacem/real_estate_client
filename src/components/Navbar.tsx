@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { SidebarTrigger } from "./ui/sidebar";
 
 const Navbar = () => {
   const { data: authUser } = useGetAuthUserQuery();
@@ -27,7 +28,7 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await signOut();
-    window.location.href = "/";
+    window.location.href = "/landing";
   };
 
   return (
@@ -37,6 +38,12 @@ const Navbar = () => {
     >
       <div className="flex justify-between gap-6 items-center w-full py-3 px-8 bg-primary-700 text-white">
         <div className="flex items-center gap-4 md:gap-6">
+            {isDashboradPage && (
+            <div className="md:hidden">
+                <SidebarTrigger/>
+            </div>
+            )}
+            
           <Link
             href="/"
             className="cursor-pointer hover:!text-primary-300"
